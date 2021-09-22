@@ -1,29 +1,19 @@
 {% extends 'base.html' %}
 
-{% block style %}
-<style>
-    #showcase{
-    background-image:url('http://traversymedia.com/downloads/assets/beachshowcase.jpg');
-    background-size:cover;
-    background-position:center;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 20px;
-}
-</style>
-{% endblock %}
 
 {% block title %}Movies App{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
 
 {% block content %}
+
 <div id="showcase">
     <h2>The app to search more than movie titles</h2>
     <a href="/movies">Take me there!</a>
 </div>
+
+<script src="{{url_for('static', filename='js/index.js')}}"></script>
 
 
 {% endblock %}
