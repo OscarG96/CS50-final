@@ -12,4 +12,16 @@ bp = Blueprint('main', __name__)
 @bp.route("/")
 def index():
     return render_template("index.html")
+
+
+@bp.route("/movies", methods=('GET', 'POST'))
+def movies():
+    if request.method == 'POST':
+        searchField = request.form['searchField']
+        searchValue = request.form['searchValue']
+
+        print(f"field", searchField)
+        print(f"value", searchValue)
+
+    return render_template("movies.html")
     

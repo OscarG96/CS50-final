@@ -8,6 +8,13 @@ venv\Scripts\activate
 
 pip install Flask
 
+# Power Shell
 $env:FLASK_APP = "flaskr"
 $env:FLASK_ENV = "development"
+
+# Bash
+$ export FLASK_APP=flaskr
+$ export FLASK_ENV=development
+
+
 flask run

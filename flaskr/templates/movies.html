@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Movies App{% endblock %}
+{% block header %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <form method="POST">
+        <div class="row align-items-end">
+            <div class="col-md-4">
+                <label for="inputSearch">Search by...</label>
+                <select id="inputSearch" class="form-select" name="searchField">
+                    <option selected>Choose...</option>
+                    <option value="movieName">Movie name</option>
+                    <option value="cast">Cast</option>
+                    <option value="director">Director</option>
+                    <option value="year">Year</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="searchText"></label>
+                <input type="text" class="form-control" id="searchText" name="searchValue">  
+            </div>
+            <div class="col mt-4">
+                <button class="btn btn-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="{{url_for('static', filename='js/index.js')}}"></script>
+
+
+{% endblock %}
