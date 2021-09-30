@@ -23,13 +23,27 @@
             </div>
             <div class="col-md-3">
                 <label for="searchText"></label>
-                <input type="text" class="form-control" id="searchText" name="searchValue">  
+                <input type="text" class="form-control" id="searchText" name="searchValue">
             </div>
             <div class="col mt-4">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </div>
         </div>
     </form>
+    <div>
+        {% for movie in movies %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie[1] }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ movie[2] }}</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 <script src="{{url_for('static', filename='js/index.js')}}"></script>
