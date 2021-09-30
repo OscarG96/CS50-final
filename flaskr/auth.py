@@ -14,7 +14,7 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        db = get_db()
+        db = get_db("DATABASE")
         error = None
 
         if not username:
@@ -43,7 +43,7 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        db = get_db()
+        db = get_db("DATABASE")
         error = None
         user = db.execute(
             'SELECT * FROM user WHERE username = ?', (username,)
@@ -70,7 +70,7 @@ def load_logged_in_user():
     if user_id is None:
         g.user = None
     else:
-        g.user = get_db().execute(
+        g.user = get_db("DATABASE").execute(
             'SELECT * FROM user WHERE id = ?', (user_id,)
         ).fetchone()
 
