@@ -12,25 +12,47 @@
     <form method="POST">
         <div class="row align-items-end">
             <div class="col-md-4">
-                <label for="inputSearch">Search by...</label>
+                <!-- <label for="inputSearch">Search by...</label>
                 <select id="inputSearch" class="form-select" name="searchField">
                     <option selected>Choose...</option>
                     <option value="movieName">Movie name</option>
                     <option value="cast">Cast</option>
                     <option value="director">Director</option>
                     <option value="year">Year</option>
-                </select>
+                </select> -->
+                <label for="movieName" class="form-label">Movie name</label>
+                <input type="text" class="form-control" id="movieName" name="movie">
             </div>
-            <div class="col-md-3">
-                <label for="searchText"></label>
-                <input type="text" class="form-control" id="searchText" name="searchValue">
+            <div class="col-md-2">
+                <label for="movieYear">Year</label>
+                <input type="number" class="form-control" id="movieYearFrom" name="yearFrom" placeholder="From">
+            </div>
+            <div class="col-md-2 mt-3">
+                <!-- <label for="movieYear">Year</label> -->
+                <input type="number" class="form-control" id="movieYearTo" name="yearTo" placeholder="To">
+            </div>
+            <div class="col-md-4">
+                <label for="directorName">Director</label>
+                <input type="text" class="form-control" id="directorName" name="director">
+            </div>
+            
+        </div>
+        <div class="row align-items-end">
+            <div class="col-md-4">
+                <label for="movieCast">Cast</label>
+                <input type="text" class="form-control" id="movieCast" name="cast">
+            </div>
+            <div class="col-md-2">
+                <label for="movieRating">Rating</label>
+                <input type="number" min="0" max="10" step="0.1" class="form-control" id="movieRating" name="rating">
             </div>
             <div class="col mt-4">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </div>
         </div>
     </form>
-    <div>
+    <hr>
+    <div class="mt-3">
         {% for movie in movies %}
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
