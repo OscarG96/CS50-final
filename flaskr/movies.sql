@@ -28,3 +28,5 @@ CREATE TABLE people (
     birth NUMERIC,
     PRIMARY KEY(id)
 );
+
+--SELECT title from movies JOIN stars on movies.id = stars.movie_id WHERE person_id = (SELECT id FROM people WHERE name LIKE "Emma Watson");

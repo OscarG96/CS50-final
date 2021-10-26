@@ -21,20 +21,27 @@ def movies():
     if request.method == 'POST':
         for el in request.form:
             print(f"field", el, request.form[el])
-        # searchField = request.form['searchField']
-        # searchValue = request.form['searchValue']
+        searchField = request.form['searchField']
+        searchValue = request.form['searchValue']
+        query = ''
+        if searchField == 'movieName':
+            query = 'SELECT * FROM movies WHERE title = ?'
+        elif searchField == 'cast':
+            query = 'SELECT * from movies JOIN stars on movies.id = stars.movie_id WHERE person_id = (SELECT id FROM people WHERE name LIKE ?);'
+        else:
+            return
         db = get_db("DATABASE_MOVIES")
         error = None
-        # movies = db.execute(
-        #     'SELECT * FROM movies WHERE title = ?', (searchValue,)
-        # ).fetchone()
+        movies = db.execute(
+            query, [searchValue]
+        ).fetchall()
 
-        # MOVIES.append(movies)
+        MOVIES.append(movies)
         
         # print(f"field", searchField)
         # print(f"value", searchValue)
-        # for field in movies:
-        #     print(f"movies sql", field)
+        for field in movies:
+            print(f"movies sql", field)
         return render_template("movies.html", movies=MOVIES)
 
     return render_template("movies.html")
